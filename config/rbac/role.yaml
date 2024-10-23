@@ -1,0 +1,32 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: manager-role
+rules:
+- apiGroups:
+  - registry.solo.io
+  resources:
+  - consulregistrysyncs
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - registry.solo.io
+  resources:
+  - consulregistrysyncs/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - registry.solo.io
+  resources:
+  - consulregistrysyncs/status
+  verbs:
+  - get
+  - patch
+  - update

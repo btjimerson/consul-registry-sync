@@ -1,0 +1,27 @@
+# permissions for end users to edit consulregistrysyncs.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: consul-registry-sync
+    app.kubernetes.io/managed-by: kustomize
+  name: consulregistrysync-editor-role
+rules:
+- apiGroups:
+  - registry.solo.io
+  resources:
+  - consulregistrysyncs
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - registry.solo.io
+  resources:
+  - consulregistrysyncs/status
+  verbs:
+  - get

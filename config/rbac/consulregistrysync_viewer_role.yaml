@@ -1,0 +1,23 @@
+# permissions for end users to view consulregistrysyncs.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: consul-registry-sync
+    app.kubernetes.io/managed-by: kustomize
+  name: consulregistrysync-viewer-role
+rules:
+- apiGroups:
+  - registry.solo.io
+  resources:
+  - consulregistrysyncs
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - registry.solo.io
+  resources:
+  - consulregistrysyncs/status
+  verbs:
+  - get

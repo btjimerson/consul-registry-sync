@@ -1,0 +1,11 @@
+apiVersion: registry.solo.io/v1alpha1
+kind: ConsulRegistrySync
+metadata:
+  labels:
+    app.kubernetes.io/name: consul-registry-sync
+    app.kubernetes.io/managed-by: kustomize
+  name: consulregistrysync-sample
+spec:
+  consuladdress: http://localhost:8500
+  serviceentrynamespace: default
+  kubeconfig: ~/.kube/config
